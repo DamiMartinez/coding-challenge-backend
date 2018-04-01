@@ -1,3 +1,3 @@
 class Armor < ApplicationRecord
-  belongs_to :zombie
+  has_many :zombie_armor
 end
