@@ -38,21 +38,34 @@ class ZombiesController < ApplicationController
     @zombie = Zombie.find(params[:id])
     if @zombie.update(zombie_params)
       if params.has_key?(:weapon_id) && params.has_key?(:armor_id)
-        @zombie_weapon = ZombieWeapon.where(zombie_id: @zombie.id).last
-        @zombie_armor = ZombieArmor.where(zombie_id: @zombie.id).last
-        if @zombie_weapon.update(weapon_id: params[:weapon_id]) && @zombie_armor.update(armor_id: params[:armor_id])
-          render json: {zombie: @zombie, zombie_weapon: @zombie_weapon, zombie_armor: @zombie_armor}
+        if @zombie.zombie_weapon_ids.size != 0
+          @zombie.zombie_weapon.last.update(weapon_id: params[:weapon_id])
+        else
+          @zombie.zombie_weapon.create(zombie_id: @zombie.id, weapon_id: params[:weapon_id])
         end
+        if @zombie.zombie_armor_ids.size != 0
+          @zombie.zombie_armor.last.update(armor_id: params[:armor_id])
+        else
+          @zombie.zombie_armor.create(zombie_id: @zombie.id, armor_id: params[:armor_id])
+        end
+        render json: {zombie: @zombie, zombie_weapon: @zombie.zombie_weapon.last, zombie_armor: @zombie.zombie_armor.last}
+
       elsif params.has_key?(:weapon_id)
-        @zombie_weapon = ZombieWeapon.where(zombie_id: @zombie.id).last
-        if @zombie_weapon.update(weapon_id: params[:weapon_id])
-          render json: {zombie: @zombie, zombie_weapon: @zombie_weapon}
+        if @zombie.zombie_weapon_ids.size != 0
+          @zombie.zombie_weapon.last.update(weapon_id: params[:weapon_id])
+        else
+          @zombie.zombie_weapon.create(zombie_id: @zombie.id, weapon_id: params[:weapon_id])
         end
+        render json: {zombie: @zombie, zombie_weapon: @zombie.zombie_weapon.last}
+
       elsif params.has_key?(:armor_id)
-        @zombie_armor = ZombieArmor.where(zombie_id: @zombie.id).last
-        if @zombie_armor.update(armor_id: params[:armor_id])
-          render json: {zombie: @zombie, zombie_armor: @zombie_armor}
+        if @zombie.zombie_armor_ids.size != 0
+          @zombie.zombie_armor.last.update(armor_id: params[:armor_id])
+        else
+          @zombie.zombie_armor.create(zombie_id: @zombie.id, armor_id: params[:armor_id])
         end
+        render json: {zombie: @zombie, zombie_armor: @zombie.zombie_armor.last}
+
       else
         render json: {zombie: @zombie}
       end
