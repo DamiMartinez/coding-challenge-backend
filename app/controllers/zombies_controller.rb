@@ -61,6 +61,21 @@ class ZombiesController < ApplicationController
     end
   end
 
+  def search
+    if !params
+      @zombies = Zombie.all.order('created_at DESC')
+    elsif params[:weapon_id] && params[:armor_id]
+      @zombies = Zombie.joins(:zombie_weapon, :zombie_armor).search_by_weapon_armor(params[:name], params[:hit_points], params[:brains_eaten], params[:speed], params[:weapon_id], params[:armor_id]).order("created_at DESC")
+    elsif params[:weapon_id]
+      @zombies = Zombie.joins(:zombie_weapon).search_by_weapon(params[:name], params[:hit_points], params[:brains_eaten], params[:speed], params[:weapon_id]).order("created_at DESC")
+    elsif params[:armor_id]
+      @zombies = Zombie.joins(:zombie_armor).search_by_armor(params[:name], params[:hit_points], params[:brains_eaten], params[:speed], params[:armor_id]).order("created_at DESC")
+    else
+      @zombies = Zombie.search(params[:name], params[:hit_points], params[:brains_eaten], params[:speed]).order("created_at DESC")
+    end
+    render json: @zombies
+  end
+
   def destroy
     @zombie = Zombie.find(params[:id])
     if @zombie.destroy
