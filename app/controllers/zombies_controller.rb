@@ -40,17 +40,17 @@ class ZombiesController < ApplicationController
       if params.has_key?(:weapon_id) && params.has_key?(:armor_id)
         @zombie_weapon = ZombieWeapon.where(zombie_id: @zombie.id).last
         @zombie_armor = ZombieArmor.where(zombie_id: @zombie.id).last
-        if @zombie_weapon.update(weapon_id: params[weapon_id]) && @zombie_armor.update(armor_id: params[armor_id])
+        if @zombie_weapon.update(weapon_id: params[:weapon_id]) && @zombie_armor.update(armor_id: params[:armor_id])
           render json: {zombie: @zombie, zombie_weapon: @zombie_weapon, zombie_armor: @zombie_armor}
         end
       elsif params.has_key?(:weapon_id)
         @zombie_weapon = ZombieWeapon.where(zombie_id: @zombie.id).last
-        if @zombie_weapon.update(weapon_id: params[weapon_id])
+        if @zombie_weapon.update(weapon_id: params[:weapon_id])
           render json: {zombie: @zombie, zombie_weapon: @zombie_weapon}
         end
       elsif params.has_key?(:armor_id)
         @zombie_armor = ZombieArmor.where(zombie_id: @zombie.id).last
-        if @zombie_armor.update(armor_id: params[armor_id])
+        if @zombie_armor.update(armor_id: params[:armor_id])
           render json: {zombie: @zombie, zombie_armor: @zombie_armor}
         end
       else
