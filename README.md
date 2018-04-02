@@ -40,114 +40,114 @@ First of all, I have downloaded and installed the repository on my computer. Aft
 These are the calls to the API:
 
 ### Create Zombie
-**URL:** /zombies
-**Method:** POST
-**Data Params:** Required: name=[string]; Not required: hit_points=[integer], brains_eaten=[integer], speed=[integer], weapon_id=[integer], armor_id=[integer]
-**Success Response:** Status: 200, Content: JSON object
-**Error Response:** Status: 400, Content: {error: 'Something went wrong :('} 
+**URL:** /zombies <br />
+**Method:** POST <br />
+**Data Params:** Required: name=[string]; Not required: hit_points=[integer], brains_eaten=[integer], speed=[integer], weapon_id=[integer], armor_id=[integer] <br />
+**Success Response:** Status: 200, Content: JSON object <br />
+**Error Response:** Status: 400, Content: {error: 'Something went wrong :('} <br />
 
 ### Show Zombie
-**URL:** /zombies/:id
-**Method:** GET
-**URL Params:** Required: id=[integer]
-**Success Response:** Status: 200, Content: JSON object
-**Error Response:** Status: 400, Content: {error: 'Something went wrong :('}
+**URL:** /zombies/:id <br />
+**Method:** GET <br />
+**URL Params:** Required: id=[integer] <br />
+**Success Response:** Status: 200, Content: JSON object <br />
+**Error Response:** Status: 400, Content: {error: 'Something went wrong :('} <br />
 
 ### Index All Zombies
-**URL:** /zombies
-**Method:** GET
-**URL Params:** None
-**Success Response:** Status: 200, Content: JSON object
+**URL:** /zombies <br />
+**Method:** GET <br />
+**URL Params:** None <br />
+**Success Response:** Status: 200, Content: JSON object <br />
 
 ### Update Zombie
-**URL:** /zombies/:id
-**Method:** PUT
-**URL Params:** Required: id=[integer]
-**Data Params:** name=[string], hit_points=[integer], brains_eaten=[integer], speed=[integer], weapon_id=[integer], armor_id=[integer]
-**Success Response:** Status: 200, Content: JSON object
-**Error Response:** Status: 400, Content: {error: 'Something went wrong :('}
+**URL:** /zombies/:id <br />
+**Method:** PUT <br />
+**URL Params:** Required: id=[integer] <br />
+**Data Params:** name=[string], hit_points=[integer], brains_eaten=[integer], speed=[integer], weapon_id=[integer], armor_id=[integer] <br />
+**Success Response:** Status: 200, Content: JSON object <br />
+**Error Response:** Status: 400, Content: {error: 'Something went wrong :('} <br />
 
 ### Search Zombies
-**URL:** /zombies/search
-**Method:** POST
-**Data Params:** name=[string], hit_points=[integer], brains_eaten=[integer], speed=[integer], weapon_id=[integer], armor_id=[integer]
-**Success Response:** Status: 200, Content: JSON object
-**Error Response:** Status: 400, Content: {error: 'Something went wrong :('} 
+**URL:** /zombies/search <br />
+**Method:** POST <br />
+**Data Params:** name=[string], hit_points=[integer], brains_eaten=[integer], speed=[integer], weapon_id=[integer], armor_id=[integer] <br />
+**Success Response:** Status: 200, Content: JSON object <br />
+**Error Response:** Status: 400, Content: {error: 'Something went wrong :('} <br />
 
 ### Destroy Zombie
-**URL:** /zombies/:id
-**Method:** DELETE
-**URL Params:** Required: id=[integer]
-**Success Response:** Status: 200, Content: {status: 'Successful'}
-**Error Response:** Status: 400, Content: {error: 'Something went wrong :('}
+**URL:** /zombies/:id <br />
+**Method:** DELETE <br />
+**URL Params:** Required: id=[integer] <br />
+**Success Response:** Status: 200, Content: {status: 'Successful'} <br />
+**Error Response:** Status: 400, Content: {error: 'Something went wrong :('} <br />
 
 ### Create Weapon
-**URL:** /weapons
-**Method:** POST
-**Data Params:** Required: name=[string]; Not required: attack_points=[integer], durability=[integer], price=[integer]
-**Success Response:** Status: 200, Content: JSON object
-**Error Response:** Status: 400, Content: {error: 'Something went wrong :('} 
+**URL:** /weapons <br />
+**Method:** POST <br />
+**Data Params:** Required: name=[string]; Not required: attack_points=[integer], durability=[integer], price=[integer] <br />
+**Success Response:** Status: 200, Content: JSON object <br />
+**Error Response:** Status: 400, Content: {error: 'Something went wrong :('} <br />
 
 ### Index All Weapons
-**URL:** /weapons
-**Method:** GET
-**URL Params:** None
-**Success Response:** Status: 200, Content: JSON object
+**URL:** /weapons <br />
+**Method:** GET <br />
+**URL Params:** None <br />
+**Success Response:** Status: 200, Content: JSON object <br />
 
 ### Show Weapon
-**URL:** /weapons/:id
-**Method:** GET
-**URL Params:** Required: id=[integer]
-**Success Response:** Status: 200, Content: JSON object
-**Error Response:** Status: 400, Content: {error: 'Something went wrong :('}
+**URL:** /weapons/:id <br />
+**Method:** GET <br />
+**URL Params:** Required: id=[integer] <br />
+**Success Response:** Status: 200, Content: JSON object <br />
+**Error Response:** Status: 400, Content: {error: 'Something went wrong :('} <br />
 
 ### Update Weapon
-**URL:** /weapons/:id
-**Method:** PUT
-**URL Params:** Required: id=[integer]
-**Data Params:** name=[string], attack_points=[integer], durability=[integer], price=[integer]
-**Success Response:** Status: 200, Content: JSON object
-**Error Response:** Status: 400, Content: {error: 'Something went wrong :('}
+**URL:** /weapons/:id <br />
+**Method:** PUT <br />
+**URL Params:** Required: id=[integer] <br />
+**Data Params:** name=[string], attack_points=[integer], durability=[integer], price=[integer] <br />
+**Success Response:** Status: 200, Content: JSON object <br />
+**Error Response:** Status: 400, Content: {error: 'Something went wrong :('} <br />
 
 ### Destroy Weapon
-**URL:** /weapons/:id
-**Method:** DELETE
-**URL Params:** Required: id=[integer]
-**Success Response:** Status: 200, Content: {status: 'Successful'}
-**Error Response:** Status: 400, Content: {error: 'Something went wrong :('}
+**URL:** /weapons/:id <br />
+**Method:** DELETE <br />
+**URL Params:** Required: id=[integer] <br />
+**Success Response:** Status: 200, Content: {status: 'Successful'} <br />
+**Error Response:** Status: 400, Content: {error: 'Something went wrong :('} <br />
 
 ### Create Armor
-**URL:** /armors
-**Method:** POST
-**Data Params:** Required: name=[string]; Not required: defense_points=[integer], durability=[integer], price=[integer]
-**Success Response:** Status: 200, Content: JSON object
-**Error Response:** Status: 400, Content: {error: 'Something went wrong :('} 
+**URL:** /armors <br />
+**Method:** POST <br />
+**Data Params:** Required: name=[string]; Not required: defense_points=[integer], durability=[integer], price=[integer] <br />
+**Success Response:** Status: 200, Content: JSON object <br />
+**Error Response:** Status: 400, Content: {error: 'Something went wrong :('} <br />
 
 ### Index All Armors
-**URL:** /armors
-**Method:** GET
-**URL Params:** None
-**Success Response:** Status: 200, Content: JSON object
+**URL:** /armors <br />
+**Method:** GET <br />
+**URL Params:** None <br />
+**Success Response:** Status: 200, Content: JSON object <br />
 
 ### Show Armor
-**URL:** /armors/:id
-**Method:** GET
-**URL Params:** Required: id=[integer]
-**Success Response:** Status: 200, Content: JSON object
-**Error Response:** Status: 400, Content: {error: 'Something went wrong :('}
+**URL:** /armors/:id <br />
+**Method:** GET <br />
+**URL Params:** Required: id=[integer] <br />
+**Success Response:** Status: 200, Content: JSON object <br />
+**Error Response:** Status: 400, Content: {error: 'Something went wrong :('} <br />
 
 ### Update Armor
-**URL:** /armors/:id
-**Method:** PUT
-**URL Params:** Required: id=[integer]
-**Data Params:** name=[string], defense_points=[integer], durability=[integer], price=[integer]
-**Success Response:** Status: 200, Content: JSON object
-**Error Response:** Status: 400, Content: {error: 'Something went wrong :('}
+**URL:** /armors/:id <br />
+**Method:** PUT <br />
+**URL Params:** Required: id=[integer] <br />
+**Data Params:** name=[string], defense_points=[integer], durability=[integer], price=[integer] <br />
+**Success Response:** Status: 200, Content: JSON object <br />
+**Error Response:** Status: 400, Content: {error: 'Something went wrong :('} <br />
 
 ### Destroy Armor
-**URL:** /armors/:id
-**Method:** DELETE
-**URL Params:** Required: id=[integer]
-**Success Response:** Status: 200, Content: {status: 'Successful'}
-**Error Response:** Status: 400, Content: {error: 'Something went wrong :('}
+**URL:** /armors/:id<br />
+**Method:** DELETE <br />
+**URL Params:** Required: id=[integer] <br />
+**Success Response:** Status: 200, Content: {status: 'Successful'} <br />
+**Error Response:** Status: 400, Content: {error: 'Something went wrong :('} <br />
 
