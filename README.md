@@ -1,4 +1,4 @@
-# Badi Coding Challenge - Backend (Ruby on Rails)
+# Damian Martinez's Badi Coding Challenge - Backend (Ruby on Rails)
 ![Zombies at Badi](https://user-images.githubusercontent.com/4199523/33260366-e54216aa-d35f-11e7-8442-8d9e1cd67d88.jpg)
 
 ## The context
@@ -26,25 +26,128 @@ Create a fully-working API that allows to perform the following operations:
 5. Make your API public. Deploy it using the service of your choice (e.g. AWS, Heroku, Digital Ocean...);
 6. Create a Readme file including a short explanation of your technical choices and (if you wish) ideas and suggestions.
 
-Too easy? Great, we think so too!
-That's why we encourage candidates to go the extra mile and impress us in any way they deem appropriate (as long as it is related to this challenge ;).
+## The Solution
 
-**Happy coding!**
+First of all, I have downloaded and installed the repository on my computer. After that, I set up the environment and I did the following:
 
-### Recommendations
-We **highly recommend you to use Docker**, this project is already setup to do so.
-Just run `docker-compose up -d && docker-compose logs -f` and your api will be up & running with hot code reloading on `http://localhost:3000`.
+1. I have created the Zombies controller and the routes for the API.
+2. I have defined the CRUD methods for Zombies controller.
+3. I have created the Armors and Weapons controllers with the routes and CRUD methods, as well.
+4. I have deployed the API on DigitalOcean (http://167.99.211.185:3000/).
 
-In case you want to clean your environment, run again:
+## The API
 
-```
-docker-compose down -f
-docker-compose up -d --build
-docker-compose logs -f
-```
+These are the calls to the API:
 
-### About Badi
-[Badi](https://www.crunchbase.com/organization/badi) is a startup based in Barcelona (Spain) which offers a two-sided marketplace for shared flats and roommates (mobile and web app). 
-Our goal is making city living affordable for everyone by unlocking available rooms inside crowded urban areas. How? By offering the best marketplace that intelligently matches verified profiles without intermediaries. 
-Do you want to join our tech team as a backend engineer? Accept our challenge and impress us :)
-In case of questions or doubts, don't hesitate to reach out to us at jobs@badiapp.com.
+### Create Zombie
+**URL:** /zombies
+**Method:** POST
+**Data Params:** Required: name=[string]; Not required: hit_points=[integer], brains_eaten=[integer], speed=[integer], weapon_id=[integer], armor_id=[integer]
+**Success Response:** Status: 200, Content: JSON object
+**Error Response:** Status: 400, Content: {error: 'Something went wrong :('} 
+
+### Show Zombie
+**URL:** /zombies/:id
+**Method:** GET
+**URL Params:** Required: id=[integer]
+**Success Response:** Status: 200, Content: JSON object
+**Error Response:** Status: 400, Content: {error: 'Something went wrong :('}
+
+### Index All Zombies
+**URL:** /zombies
+**Method:** GET
+**URL Params:** None
+**Success Response:** Status: 200, Content: JSON object
+
+### Update Zombie
+**URL:** /zombies/:id
+**Method:** PUT
+**URL Params:** Required: id=[integer]
+**Data Params:** name=[string], hit_points=[integer], brains_eaten=[integer], speed=[integer], weapon_id=[integer], armor_id=[integer]
+**Success Response:** Status: 200, Content: JSON object
+**Error Response:** Status: 400, Content: {error: 'Something went wrong :('}
+
+### Search Zombies
+**URL:** /zombies/search
+**Method:** POST
+**Data Params:** name=[string], hit_points=[integer], brains_eaten=[integer], speed=[integer], weapon_id=[integer], armor_id=[integer]
+**Success Response:** Status: 200, Content: JSON object
+**Error Response:** Status: 400, Content: {error: 'Something went wrong :('} 
+
+### Destroy Zombie
+**URL:** /zombies/:id
+**Method:** DELETE
+**URL Params:** Required: id=[integer]
+**Success Response:** Status: 200, Content: {status: 'Successful'}
+**Error Response:** Status: 400, Content: {error: 'Something went wrong :('}
+
+### Create Weapon
+**URL:** /weapons
+**Method:** POST
+**Data Params:** Required: name=[string]; Not required: attack_points=[integer], durability=[integer], price=[integer]
+**Success Response:** Status: 200, Content: JSON object
+**Error Response:** Status: 400, Content: {error: 'Something went wrong :('} 
+
+### Index All Weapons
+**URL:** /weapons
+**Method:** GET
+**URL Params:** None
+**Success Response:** Status: 200, Content: JSON object
+
+### Show Weapon
+**URL:** /weapons/:id
+**Method:** GET
+**URL Params:** Required: id=[integer]
+**Success Response:** Status: 200, Content: JSON object
+**Error Response:** Status: 400, Content: {error: 'Something went wrong :('}
+
+### Update Weapon
+**URL:** /weapons/:id
+**Method:** PUT
+**URL Params:** Required: id=[integer]
+**Data Params:** name=[string], attack_points=[integer], durability=[integer], price=[integer]
+**Success Response:** Status: 200, Content: JSON object
+**Error Response:** Status: 400, Content: {error: 'Something went wrong :('}
+
+### Destroy Weapon
+**URL:** /weapons/:id
+**Method:** DELETE
+**URL Params:** Required: id=[integer]
+**Success Response:** Status: 200, Content: {status: 'Successful'}
+**Error Response:** Status: 400, Content: {error: 'Something went wrong :('}
+
+### Create Armor
+**URL:** /armors
+**Method:** POST
+**Data Params:** Required: name=[string]; Not required: defense_points=[integer], durability=[integer], price=[integer]
+**Success Response:** Status: 200, Content: JSON object
+**Error Response:** Status: 400, Content: {error: 'Something went wrong :('} 
+
+### Index All Armors
+**URL:** /armors
+**Method:** GET
+**URL Params:** None
+**Success Response:** Status: 200, Content: JSON object
+
+### Show Armor
+**URL:** /armors/:id
+**Method:** GET
+**URL Params:** Required: id=[integer]
+**Success Response:** Status: 200, Content: JSON object
+**Error Response:** Status: 400, Content: {error: 'Something went wrong :('}
+
+### Update Armor
+**URL:** /armors/:id
+**Method:** PUT
+**URL Params:** Required: id=[integer]
+**Data Params:** name=[string], defense_points=[integer], durability=[integer], price=[integer]
+**Success Response:** Status: 200, Content: JSON object
+**Error Response:** Status: 400, Content: {error: 'Something went wrong :('}
+
+### Destroy Armor
+**URL:** /armors/:id
+**Method:** DELETE
+**URL Params:** Required: id=[integer]
+**Success Response:** Status: 200, Content: {status: 'Successful'}
+**Error Response:** Status: 400, Content: {error: 'Something went wrong :('}
+
